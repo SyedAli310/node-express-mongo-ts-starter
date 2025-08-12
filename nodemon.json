@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "migrations", "tests", "scripts"],
+  "ext": "ts",
+  "ignore": ["dist"],
+  "exec": "ts-node ./src/server.ts"
+}

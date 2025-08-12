@@ -1,0 +1,347 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "💸 API Docs",
+        "version": "1.0.0",
+        "description": "API documentation for TS Node backend"
+    },
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "Authentication endpoints"
+        },
+        {
+            "name": "User",
+            "description": "User-related endpoints"
+        },
+        {
+            "name": "Navigation",
+            "description": "Navigation-related endpoints"
+        }
+    ],
+    "paths": {
+        "/api/v1/auth/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User login",
+                "responses": {
+                    "200": {
+                        "description": "Login successful"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/signup": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User signup",
+                "responses": {
+                    "201": {
+                        "description": "Signup successful"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/google-login": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Google login",
+                "responses": {
+                    "200": {
+                        "description": "Redirect to Google authentication"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/facebook-login": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Facebook login",
+                "responses": {
+                    "200": {
+                        "description": "Redirect to Facebook authentication"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/google/callback": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Google OAuth callback",
+                "responses": {
+                    "200": {
+                        "description": "Google authentication callback"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/facebook/callback": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Facebook OAuth callback",
+                "responses": {
+                    "200": {
+                        "description": "Facebook authentication callback"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/login-status": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Check login status",
+                "responses": {
+                    "200": {
+                        "description": "Login status"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/forgot-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Forgot password",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Password reset email sent"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/reset-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Reset password",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Password reset successful"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/logout": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User logout",
+                "responses": {
+                    "200": {
+                        "description": "Logout successful"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/verify-email/{token}": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Verify email with token",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Email verified"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/resend-verification": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Resend verification email",
+                "responses": {
+                    "200": {
+                        "description": "Verification email resent"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/set-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Set password",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Password set"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/change-password": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Change password",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Password changed"
+                    }
+                }
+            }
+        },
+        "/api/v1/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get logged in user",
+                "responses": {
+                    "200": {
+                        "description": "User info"
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "tags": [
+                    "Navigation"
+                ],
+                "summary": "Redirect to client app",
+                "responses": {
+                    "308": {
+                        "description": "Redirect"
+                    }
+                }
+            }
+        },
+        "/story": {
+            "get": {
+                "tags": [
+                    "Navigation"
+                ],
+                "summary": "Get a random story",
+                "responses": {
+                    "200": {
+                        "description": "Random story"
+                    }
+                }
+            }
+        },
+        "/github": {
+            "get": {
+                "tags": [
+                    "Navigation"
+                ],
+                "summary": "Redirect to GitHub",
+                "responses": {
+                    "308": {
+                        "description": "Redirect"
+                    }
+                }
+            }
+        },
+        "/credits": {
+            "get": {
+                "tags": [
+                    "Navigation"
+                ],
+                "summary": "Redirect to credits",
+                "responses": {
+                    "308": {
+                        "description": "Redirect"
+                    }
+                }
+            }
+        },
+        "/developer": {
+            "get": {
+                "tags": [
+                    "Navigation"
+                ],
+                "summary": "Redirect to developer page",
+                "responses": {
+                    "308": {
+                        "description": "Redirect"
+                    }
+                }
+            }
+        },
+        "/support": {
+            "get": {
+                "tags": [
+                    "Navigation"
+                ],
+                "summary": "Redirect to support page",
+                "responses": {
+                    "308": {
+                        "description": "Redirect"
+                    }
+                }
+            }
+        }
+    }
+}
