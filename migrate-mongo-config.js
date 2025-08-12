@@ -3,7 +3,7 @@
 const config = {
     mongodb: {
         // TODO Change (or review) the url to your MongoDB:
-        url: "mongodb+srv://czuar:Syedali310%40mongo@cluster0.pmnst.mongodb.net/TSNODE-DEMO?retryWrites=true&w=majority",
+        url: process.env.MONGO_URL || "mongodb://localhost:27017",
 
         // TODO Change this to your database name:
         databaseName: "TSNODE-DEMO",
